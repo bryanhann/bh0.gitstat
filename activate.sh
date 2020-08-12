@@ -4,7 +4,7 @@ bh0-gitstat.root () {echo ${MAGIC_87632519} ; }
 bh0-gitstat () {
     dst=${1-.}
     [[ -d ${dst}/.git ]] || {
-        echo >2 "bh0-gitstat: not the root of a git directory: [$dst]" ;
+        echo >&2 "bh0-gitstat: not the root of a git directory: [$dst]" ;
         return 1
     }
     pushd ${dst} > /dev/null
