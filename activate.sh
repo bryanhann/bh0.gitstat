@@ -1,3 +1,9 @@
+echo .
+echo .  WARNING: bh0.gitstat is deprecated.
+echo .  Please use the bch.gitstat function instead.
+echo .
+read
+
 export                      MAGIC_87632519=$(dirname $0);
 bh0-gitstat.root () {echo ${MAGIC_87632519} ; }
 
@@ -12,10 +18,10 @@ bh0-gitstat.thisdir () {
     popd > /dev/null
     return 0
 }
-
 bh0-gitstat () {
     for line in $( find . -maxdepth 3 -type d -name .git -print ) ; do
         line=$(dirname $line)
         echo $(bh0-gitstat.thisdir $line) "    " $line | python $(bh0-gitstat.root)/fixline.py
     done
 }
+
